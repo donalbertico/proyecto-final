@@ -21,6 +21,7 @@ import android.widget.ImageView;
 
 
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.alberto.proyectofinal.R;
@@ -53,9 +54,9 @@ public class dashboardActivity extends AppCompatActivity {
     User user = new User();
     ImageView img2;
     CharSequence badPass = "Contraseña incorrecta";
-
+    Spinner spinner ;
     ListView needsListView ;
-
+    int index = 0;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -83,6 +84,7 @@ public class dashboardActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Yo"));
         tabLayout.addTab(tabLayout.newTab().setText("Necesidades"));
         tabLayout.addTab(tabLayout.newTab().setText("Otra necesidad"));
+        tabLayout.addTab(tabLayout.newTab().setText("Defensa"));
 
 
         dialog = new ProgressDialog(this);
@@ -102,8 +104,8 @@ public class dashboardActivity extends AppCompatActivity {
 
                 viewPager.setCurrentItem(tab.getPosition());
 
-                if(tab.getPosition()==1){
-
+                if(tab.getPosition()==1 ||tab.getPosition()==3 ){
+                    index = tab.getPosition();
                     AsyncCaller caller = new AsyncCaller("http://web-service-donalbertic0.c9users.io:8080/needs/get",intent.getStringExtra("user"),true );
                     caller.execute();
                 }
@@ -288,10 +290,17 @@ public class dashboardActivity extends AppCompatActivity {
         needs[] needsArray;
         this.needsListView = (ListView) findViewById(R.id.needsListView);
 
+        this.spinner = (Spinner) findViewById(R.id.sp);
         needsArray = user.needs.toArray(new needs[user.needs.size()]);
+        if(index == 3){
+            this.spinner.setAdapter(new customAdapter(this, needsArray));
+        }else{
+            this.needsListView.setAdapter( new customAdapter(this, needsArray));
+        }
 
-        this.needsListView.setAdapter( new customAdapter(this, needsArray));
+
     }
+
     private class AsyncCaller extends AsyncTask<Void, Void, Void> {
         private httpRequester requester;
         private Boolean needs = false;

@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.example.alberto.proyectofinal.fragmentos.needsFragment;
 import com.example.alberto.proyectofinal.fragmentos.newNeedFragment;
+import com.example.alberto.proyectofinal.fragmentos.spinnerFrag;
 import com.example.alberto.proyectofinal.fragmentos.userFragment;
 
 /**
@@ -49,6 +50,12 @@ public class pageAdapter  extends FragmentPagerAdapter {
                 newNeedFragment tab4 = new newNeedFragment();
                 tab4.setArguments(bundle);
                 return tab4;
+
+            case 3:
+
+                spinnerFrag tab5 = new spinnerFrag();
+                tab5.setArguments(bundle);
+                return tab5;
 
             default:
 
