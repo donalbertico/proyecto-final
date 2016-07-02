@@ -1,10 +1,14 @@
-package com.example.alberto.proyectofinal;
+package com.example.alberto.proyectofinal.clasesGUI;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
+
+import com.example.alberto.proyectofinal.fragmentos.needsFragment;
+import com.example.alberto.proyectofinal.fragmentos.newNeedFragment;
+import com.example.alberto.proyectofinal.fragmentos.userFragment;
 
 /**
  * Created by Alberto on 6/17/2016.

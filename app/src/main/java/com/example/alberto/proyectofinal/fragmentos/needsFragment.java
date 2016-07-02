@@ -1,8 +1,6 @@
-package com.example.alberto.proyectofinal;
+package com.example.alberto.proyectofinal.fragmentos;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,9 +8,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import com.example.alberto.proyectofinal.R;
+import com.example.alberto.proyectofinal.clases.User;
+import com.example.alberto.proyectofinal.clases.httpRequester;
+import com.example.alberto.proyectofinal.clases.needs;
+import com.example.alberto.proyectofinal.clasesGUI.customAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +28,7 @@ import java.util.List;
 public class needsFragment extends Fragment {
 
     ListView needs ;
-    List<needs> needsList ;
+    List<com.example.alberto.proyectofinal.clases.needs> needsList ;
     JSONObject jsonObject;
     User user = new User();
     needs[] needsArray;

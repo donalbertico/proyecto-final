@@ -1,4 +1,4 @@
-package com.example.alberto.proyectofinal;
+package com.example.alberto.proyectofinal.clasesGUI;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.alberto.proyectofinal.R;
+import com.example.alberto.proyectofinal.clases.needs;
 
 /**
  * Created by Alberto on 6/24/2016.
@@ -21,7 +23,7 @@ public class customAdapter extends BaseAdapter {
     String[] result;
     Context context;
     Bitmap[] imageId;
-    needs[] needs;
+    com.example.alberto.proyectofinal.clases.needs[] needs;
     private static LayoutInflater inflater = null;
 
     public customAdapter(Activity mainActivity, needs[] needs) {

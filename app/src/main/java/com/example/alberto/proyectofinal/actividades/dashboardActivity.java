@@ -1,15 +1,12 @@
-package com.example.alberto.proyectofinal;
+package com.example.alberto.proyectofinal.actividades;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -23,8 +20,13 @@ import android.widget.ImageView;
 
 
 import android.widget.ListView;
-import android.widget.TextView;
-import android.support.v4.app.Fragment;
+
+import com.example.alberto.proyectofinal.R;
+import com.example.alberto.proyectofinal.clases.User;
+import com.example.alberto.proyectofinal.clases.httpRequester;
+import com.example.alberto.proyectofinal.clases.needs;
+import com.example.alberto.proyectofinal.clasesGUI.customAdapter;
+import com.example.alberto.proyectofinal.clasesGUI.pageAdapter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.android.gms.appindexing.Action;
@@ -39,7 +41,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class testActivity extends AppCompatActivity {
+public class dashboardActivity extends AppCompatActivity {
     JSONObject jsonObjectUser;
     JSONObject jsonObjectPhoto;
     Object obj;

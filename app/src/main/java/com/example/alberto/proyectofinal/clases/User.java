@@ -1,4 +1,4 @@
-package com.example.alberto.proyectofinal;
+package com.example.alberto.proyectofinal.clases;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class User {
     public String name;
     public String password;
     public String succes;
-    public List<needs> needs;
+    public List<com.example.alberto.proyectofinal.clases.needs> needs;
     public String photo;
     public String id;
 }

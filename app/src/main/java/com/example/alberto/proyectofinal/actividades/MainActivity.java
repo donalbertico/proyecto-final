@@ -1,13 +1,10 @@
-package com.example.alberto.proyectofinal;
+package com.example.alberto.proyectofinal.actividades;
 
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -17,6 +14,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.example.alberto.proyectofinal.R;
+import com.example.alberto.proyectofinal.clases.User;
+import com.example.alberto.proyectofinal.clases.httpRequester;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
             if(succes){
 
-                Intent intent = new Intent(MainActivity.this, testActivity.class);
+                Intent intent = new Intent(MainActivity.this, dashboardActivity.class);
                 intent.putExtra("user",json);
 
                 startActivity(intent);

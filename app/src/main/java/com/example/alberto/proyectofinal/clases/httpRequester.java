@@ -1,4 +1,4 @@
-package com.example.alberto.proyectofinal;
+package com.example.alberto.proyectofinal.clases;
 
 /**
  * Created by Alberto on 6/10/2016.

@@ -3,7 +3,7 @@
     android:id="@+id/needs_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alberto.proyectofinal.needsFragment">
+    tools:context=".fragmentos.needsFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

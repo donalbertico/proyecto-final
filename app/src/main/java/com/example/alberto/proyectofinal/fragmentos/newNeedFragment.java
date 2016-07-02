@@ -1,4 +1,4 @@
-package com.example.alberto.proyectofinal;
+package com.example.alberto.proyectofinal.fragmentos;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.alberto.proyectofinal.R;
 
 
 public class newNeedFragment extends Fragment {
