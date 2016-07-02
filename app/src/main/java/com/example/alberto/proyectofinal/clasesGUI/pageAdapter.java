@@ -34,8 +34,6 @@ public class pageAdapter  extends FragmentPagerAdapter {
             case 0:
 
                 userFragment tab2 = new userFragment();
-
-
                 tab2.setArguments(bundle);
                 return tab2;
 

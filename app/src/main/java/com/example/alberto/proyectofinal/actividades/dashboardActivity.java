@@ -1,6 +1,7 @@
 package com.example.alberto.proyectofinal.actividades;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -20,6 +21,7 @@ import android.widget.ImageView;
 
 
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.alberto.proyectofinal.R;
 import com.example.alberto.proyectofinal.clases.User;
@@ -50,6 +52,7 @@ public class dashboardActivity extends AppCompatActivity {
     ObjectMapper mapper = new ObjectMapper();
     User user = new User();
     ImageView img2;
+    CharSequence badPass = "Contraseña incorrecta";
 
     ListView needsListView ;
 
@@ -92,12 +95,13 @@ public class dashboardActivity extends AppCompatActivity {
 
         viewPager.addOnPageChangeListener(new    TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
-        tabLayout.setOnTabSelectedListener(new    TabLayout.OnTabSelectedListener() {
+         tabLayout.setOnTabSelectedListener(new    TabLayout.OnTabSelectedListener() {
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
                 viewPager.setCurrentItem(tab.getPosition());
+
                 if(tab.getPosition()==1){
 
                     AsyncCaller caller = new AsyncCaller("http://web-service-donalbertic0.c9users.io:8080/needs/get",intent.getStringExtra("user"),true );
@@ -113,7 +117,7 @@ public class dashboardActivity extends AppCompatActivity {
         });
 
 
-
+        int duration = Toast.LENGTH_SHORT;
 
         try {
 
@@ -361,6 +365,13 @@ public class dashboardActivity extends AppCompatActivity {
             }
             if(needs){
                 loadNeeds();
+            }else{
+
+                Context context = getApplicationContext();
+                CharSequence text = "Necesidad agregada";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
 
         }

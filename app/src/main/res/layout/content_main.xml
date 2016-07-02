@@ -18,10 +18,11 @@
         android:text="entrar"
         android:id="@+id/button"
         android:onClick="sendHttp"
-        android:background="#FF5722"
+        android:background="#FF4081"
         android:layout_marginTop="45dp"
         android:layout_below="@+id/passwordText"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:layout_width="wrap_content"

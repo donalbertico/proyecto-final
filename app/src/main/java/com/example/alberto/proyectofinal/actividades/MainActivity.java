@@ -2,6 +2,7 @@ package com.example.alberto.proyectofinal.actividades;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.alberto.proyectofinal.R;
 import com.example.alberto.proyectofinal.clases.User;
@@ -32,20 +34,17 @@ public class MainActivity extends AppCompatActivity {
     private User user;
     EditText email;
     EditText password;
-    String userJson;
     ObjectMapper mapper = new ObjectMapper();
     JSONObject jsonObject;
-    Object obj;
     ProgressDialog dialog ;
     ProgressDialog dialog2;
+    Boolean succes = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
 
         email=(EditText)findViewById(R.id.emailText);
@@ -57,10 +56,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void setUser(String json){
 
-             Boolean succes = false;
+             succes = false;
             try {
+
                 jsonObject =  new JSONObject(json);
+
                 succes = (Boolean) jsonObject.get("success");
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -71,21 +73,11 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("user",json);
 
                 startActivity(intent);
-            }else{
-
-                Log.d("AQUI ESTA JSON CHISLONN", "caquex");
-//                dialog2.setTitle("Usuario o contraseña incorrecto");
-//                dialog2.setMessage("Intente denuevo");
-//                //proDia.setIcon(getResources().getDrawable(R.drawable.ic_sesa));
-//                dialog2.setCancelable(true);
-//                dialog2.show();
-
-
             }
-
 
     }
     public void sendHttp(View view){
+
         user = new User(email.getText().toString(),password.getText().toString());
         String jsonInString = "";
 
@@ -100,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
 
         AsyncCaller caller = new AsyncCaller("http://web-service-donalbertic0.c9users.io:8080/user/login", jsonInString);
         caller.execute();
-
 
     }
 
@@ -173,6 +164,15 @@ public class MainActivity extends AppCompatActivity {
             //this method will be running on UI thread
             if(dialog.isShowing()){
                 dialog.dismiss();
+            }
+
+            if(!succes){
+
+                Context context = getApplicationContext();
+                CharSequence text = "Contraseña incorrecta =(";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
 
         }
