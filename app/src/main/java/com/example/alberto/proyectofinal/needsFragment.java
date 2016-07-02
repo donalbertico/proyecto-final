@@ -51,6 +51,11 @@ public class needsFragment extends Fragment {
 
     }
 
+    public void doNothing(View view){
+
+
+    }
+
     public void setNeeds(String needs){
 
         Log.d("LLEGO ACA", "llego");

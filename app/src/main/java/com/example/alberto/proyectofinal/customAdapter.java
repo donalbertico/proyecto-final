@@ -63,7 +63,7 @@ public class customAdapter extends BaseAdapter {
         View rowView;
         rowView = inflater.inflate(R.layout.need_list, null);
         holder.tv = (TextView) rowView.findViewById(R.id.needText);
-//        holder.quant = (TextView) rowView.findViewById(R.id.needTextQuant);
+        holder.quant = (TextView) rowView.findViewById(R.id.needTextQuant);
         holder.img = (ImageView) rowView.findViewById(R.id.needImage);
 
         holder.tv.setText(needs[position].name);
@@ -75,13 +75,7 @@ public class customAdapter extends BaseAdapter {
         Bitmap imageG = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
 
         holder.img.setImageBitmap(imageG);
-        rowView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Toast.makeText(context, "You Clicked " + result[position], Toast.LENGTH_LONG).show();
-            }
-        });
+
         return rowView;
     }
 }
